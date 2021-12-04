@@ -1,0 +1,23 @@
+mode: set
+github.com/y-kouhei9/celeritas/render/render.go:37.111,38.37 1 1
+github.com/y-kouhei9/celeritas/render/render.go:46.2,46.52 1 1
+github.com/y-kouhei9/celeritas/render/render.go:39.12,40.36 1 1
+github.com/y-kouhei9/celeritas/render/render.go:41.13,42.48 1 1
+github.com/y-kouhei9/celeritas/render/render.go:43.10,43.10 0 1
+github.com/y-kouhei9/celeritas/render/render.go:50.102,52.16 2 1
+github.com/y-kouhei9/celeritas/render/render.go:57.2,58.17 2 1
+github.com/y-kouhei9/celeritas/render/render.go:62.2,63.16 2 1
+github.com/y-kouhei9/celeritas/render/render.go:68.2,68.12 1 1
+github.com/y-kouhei9/celeritas/render/render.go:52.16,55.3 2 1
+github.com/y-kouhei9/celeritas/render/render.go:58.17,60.3 1 0
+github.com/y-kouhei9/celeritas/render/render.go:63.16,66.3 2 0
+github.com/y-kouhei9/celeritas/render/render.go:72.122,75.22 2 1
+github.com/y-kouhei9/celeritas/render/render.go:81.2,82.17 2 1
+github.com/y-kouhei9/celeritas/render/render.go:86.2,87.16 2 1
+github.com/y-kouhei9/celeritas/render/render.go:92.2,92.46 1 1
+github.com/y-kouhei9/celeritas/render/render.go:96.2,96.12 1 1
+github.com/y-kouhei9/celeritas/render/render.go:75.22,77.3 1 1
+github.com/y-kouhei9/celeritas/render/render.go:77.8,79.3 1 0
+github.com/y-kouhei9/celeritas/render/render.go:82.17,84.3 1 0
+github.com/y-kouhei9/celeritas/render/render.go:87.16,90.3 2 1
+github.com/y-kouhei9/celeritas/render/render.go:92.46,95.3 2 0
