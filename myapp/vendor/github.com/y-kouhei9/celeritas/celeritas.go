@@ -1,7 +1,7 @@
 package celeritas
 
 import (
-	"github.com/CloudyKit/jet/v6"
+	"github.com/y-kouhei9/celeritas/session"
 	"fmt"
 	"log"
 	"net/http"
@@ -9,6 +9,9 @@ import (
 	"strconv"
 	"time"
 
+	"github.com/alexedwards/scs/v2"
+
+	"github.com/CloudyKit/jet/v6"
 	"github.com/go-chi/chi/v5"
 	"github.com/y-kouhei9/celeritas/render"
 
@@ -28,13 +31,16 @@ type Celeritas struct {
 	RootPath string
 	Routes   *chi.Mux
 	Render   *render.Render
+	Session  *scs.SessionManager
 	JetViews *jet.Set
 	config   config
 }
 
 type config struct {
-	port     string
-	renderer string
+	port        string
+	renderer    string
+	cookie      cookieConfig
+	sessionType string
 }
 
 // New reads the .env file, creates our application config, populates the Celeritas type with setting
@@ -85,7 +91,26 @@ func (c *Celeritas) New(rootPath string) error {
 	c.config = config{
 		port:     os.Getenv("PORT"),
 		renderer: os.Getenv("RENDERER"),
+		cookie: cookieConfig{
+			name:     os.Getenv("COOKIE_NAME"),
+			lifetime: os.Getenv("COOKIE_LIFETIME"),
+			persist:  os.Getenv("COOKIE_PERSIST"),
+			secure:   os.Getenv("COOKIE_SECURE"),
+			domain:   os.Getenv("COOKIE_DOMAIN"),
+		},
+		sessionType: os.Getenv("SESSION_TYPE"),
 	}
+
+	// create session
+	sess := session.Session {
+		CookieLifetime: c.config.cookie.lifetime,
+		CookiePersist: c.config.cookie.persist,
+		CookieName: c.config.cookie.name,
+		SessionType: c.config.sessionType,
+		CookieDomain: c.config.cookie.domain,
+	}
+
+	c.Session = sess.InitSession()
 
 	var views = jet.NewSet(
 		jet.NewOSFileSystemLoader(fmt.Sprintf("%s/views", rootPath)),

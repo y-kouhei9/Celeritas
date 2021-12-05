@@ -1,4 +1,17 @@
 mode: set
+github.com/y-kouhei9/celeritas/session/session.go:21.53,26.16 3 1
+github.com/y-kouhei9/celeritas/session/session.go:31.2,31.48 1 1
+github.com/y-kouhei9/celeritas/session/session.go:38.2,38.47 1 1
+github.com/y-kouhei9/celeritas/session/session.go:43.2,52.40 8 1
+github.com/y-kouhei9/celeritas/session/session.go:63.2,63.16 1 1
+github.com/y-kouhei9/celeritas/session/session.go:26.16,28.3 1 0
+github.com/y-kouhei9/celeritas/session/session.go:31.48,33.3 1 1
+github.com/y-kouhei9/celeritas/session/session.go:33.8,35.3 1 0
+github.com/y-kouhei9/celeritas/session/session.go:38.47,40.3 1 0
+github.com/y-kouhei9/celeritas/session/session.go:53.15,53.15 0 0
+github.com/y-kouhei9/celeritas/session/session.go:55.26,55.26 0 0
+github.com/y-kouhei9/celeritas/session/session.go:57.32,57.32 0 0
+github.com/y-kouhei9/celeritas/session/session.go:59.10,59.10 0 1
 github.com/y-kouhei9/celeritas/render/render.go:37.111,38.37 1 1
 github.com/y-kouhei9/celeritas/render/render.go:46.2,46.52 1 1
 github.com/y-kouhei9/celeritas/render/render.go:39.12,40.36 1 1
