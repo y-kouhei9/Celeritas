@@ -8,6 +8,7 @@ import (
 	"github.com/alexedwards/scs/v2"
 )
 
+// Session is the type of session data
 type Session struct {
 	CookieLifetime string
 	CookiePersist  string
