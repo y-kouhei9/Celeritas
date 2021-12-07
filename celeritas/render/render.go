@@ -1,6 +1,7 @@
 package render
 
 import (
+	"github.com/alexedwards/scs/v2"
 	"errors"
 	"github.com/CloudyKit/jet/v6"
 	"log"
@@ -18,6 +19,7 @@ type Render struct {
 	Port       string
 	ServerName string
 	JetViews   *jet.Set
+	Session    *scs.SessionManager
 }
 
 // TemplateData is the type of template data
@@ -33,7 +35,17 @@ type TemplateData struct {
 	Secure          bool
 }
 
-// Page switches a template by a type of template
+func (c *Render) defaultData(td *TemplateData, r *http.Request) *TemplateData {
+	td.Secure = c.Secure
+	td.ServerName = c.ServerName
+	td.Port = c.Port
+	if c.Session.Exists(r.Context(), "userID") {
+		td.IsAuthenticated = true
+	}
+	return td
+}
+
+// Page switches a template accoding to a type of template
 func (c *Render) Page(w http.ResponseWriter, r *http.Request, view string, variables, data interface{}) error {
 	switch strings.ToLower(c.Renderer) {
 	case "go":
@@ -82,6 +94,8 @@ func (c *Render) JetPage(w http.ResponseWriter, r *http.Request, templateName st
 	if data != nil {
 		td = data.(*TemplateData)
 	}
+
+	td = c.defaultData(td, r)
 
 	t, err := c.JetViews.GetTemplate(fmt.Sprintf("%s.jet", templateName))
 	if err != nil {

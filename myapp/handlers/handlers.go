@@ -1,14 +1,17 @@
 package handlers
 
 import (
+	"myapp/data"
 	"net/http"
-	"github.com/y-kouhei9/celeritas"
+
 	"github.com/CloudyKit/jet/v6"
+	"github.com/y-kouhei9/celeritas"
 )
 
 // Handlers is the type of handlers
 type Handlers struct {
-	App *celeritas.Celeritas
+	App    *celeritas.Celeritas
+	Models data.Models
 }
 
 func (h *Handlers) Home(w http.ResponseWriter, r *http.Request) {
@@ -41,7 +44,7 @@ func (h *Handlers) SessionTest(w http.ResponseWriter, r *http.Request) {
 
 	vars := make(jet.VarMap)
 	vars.Set("foo", myValue)
-	
+
 	err := h.App.Render.JetPage(w, r, "sessions", vars, nil)
 	if err != nil {
 		h.App.ErrorLog.Println("Error rendering:", err)

@@ -1,14 +1,17 @@
 package main
 
 import (
-	"github.com/y-kouhei9/celeritas"
+	"myapp/data"
 	"myapp/handlers"
+
+	"github.com/y-kouhei9/celeritas"
 )
 
 // application is the basic type of application
 type application struct {
-	App *celeritas.Celeritas
+	App      *celeritas.Celeritas
 	Handlers *handlers.Handlers
+	Models   data.Models
 }
 
 func main() {

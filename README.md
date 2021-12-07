@@ -8,4 +8,4 @@ The repository for [Let's Build a Go version of Laravel](https://www.udemy.com/c
 - Uses the [godoenv](https://github.com/joho/godotenv)
 
 ## Who does this repository belong to
-Always belonged to [Trevor Sawler](https://github.com/tsawler)
+Always belongs to [Trevor Sawler](https://github.com/tsawler)

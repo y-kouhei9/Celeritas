@@ -5,6 +5,7 @@ import (
 	"os"
 	"github.com/y-kouhei9/celeritas"
 	"myapp/handlers"
+	"myapp/data"
 )
 
 func initApplication() *application {
@@ -32,6 +33,9 @@ func initApplication() *application {
 	}
 	
 	app.App.Routes = app.routes()
+
+	app.Models = data.New(app.App.DB.Pool)
+	myHandlers.Models = app.Models
 
 	return app
 }
