@@ -13,7 +13,7 @@ import (
 
 // Token is the type of the token data
 type Token struct {
-	ID        int       `db:"id" json:"id"`
+	ID        int       `db:"id,omitempty" json:"id"`
 	UserID    int       `db:"user_id" json:"user_id"`
 	FirstName string    `db:"first_name" json:"first_name"`
 	Email     string    `db:"email" json:"email"`
@@ -173,12 +173,12 @@ func (t *Token) AuthenticateToken(r *http.Request) (*User, error) {
 		return nil, errors.New("token wrong size")
 	}
 
-	t, err := t.GetByToken(token)
+	tkn, err := t.GetByToken(token)
 	if err != nil {
 		return nil, errors.New("no matching token found")
 	}
 
-	if t.Expires.Before(time.Now()) {
+	if tkn.Expires.Before(time.Now()) {
 		return nil, errors.New("expired token")
 	}
 
